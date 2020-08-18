@@ -1,0 +1,168 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@900&display=swap');
+
+html,body{
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 12px;
+  font-family: sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+ body > div,body > div > div{
+  height: 100%;
+} 
+
+.wallpaper {
+  width: 100%;
+  height: 100%;
+  background: url(../img/mobile2.jpg)no-repeat top center / 120vw ;
+}
+
+.wallpaper .top {
+  background: #000;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top img{
+  width: 30%;
+  position: absolute;
+  top: 3%;
+}
+
+.module{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6vw 10vw;
+  background: rgba(0,0,0,0.5);
+  height: calc(100% - 12vw - 20vw);
+  justify-content: center;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vw;
+}
+
+.smallTitle {
+  margin: 10px 0;
+  line-height: 30px;
+}
+
+.language img{
+  width: 24px;
+  float: right;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+i{
+  margin-top: 5px;
+}
+
+a{
+  font-weight: bold;
+  color: #42c7ff;
+}
+button{
+  width: 60%;
+  background: linear-gradient(to bottom, rgba(254,0,0,1) 80%,rgba(240,5,5,1) 100%);
+  padding: 10px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  text-shadow:-3px -3px 0 #a60000, 3px -3px 0 #a60000, -3px 3px 0 #a60000, 3px 3px 0 #a60000; 
+  font-size: 18px;
+  margin: auto;
+  margin-top: 2vw;
+}
+.agree{
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 10px;
+}
+.agree input{
+
+  margin: 0 5px 0 0;
+  height: auto;
+}
+.agree span{
+  line-height: 18px;
+}
+
+input{
+  border-radius: 5px;
+  border: 0;
+  padding: 0 10px;
+  margin: 5px 0 10px;
+  height: 30px;
+  font-size: 1em;
+  color: #5577a4;
+}
+
+::-webkit-input-placeholder{
+  color:#000;
+}
+
+.eye,.eye-off{
+  position: relative;
+  cursor: pointer;
+  margin-top: 0;
+  transform: translateY(-30px);
+}
+.eye:after{
+  background: url(../img/remove_red_eye.png);
+  width: 24px;
+  height: 24px;
+  content: '';
+  display: block;
+  position: absolute;
+  right: 2px;
+  transform: translateY(-25%);
+}
+.eye-off:after{
+  background: url(../img/visibility_off.png);
+  width: 24px;
+  height: 24px;
+  content: '';
+  display: block;
+  position: absolute;
+  right: 2px;
+  transform: translateY(-25%);
+}
+.tip{
+  color:#f77a00;
+  margin-bottom: 5px;
+}
+
+ @media screen and (max-width:375px) {
+  
+  
+
+  input {
+    margin: 2px 0 5px 0;
+  }
+  
+  .tip{
+    margin-bottom: 2px;
+  }
+
+}
+.logo{
+  height: 14vw;
+  background: black;
+  text-align: center;
+  padding: 3vw 0;
+}
+.logo img{
+  width: 40vw;
+}

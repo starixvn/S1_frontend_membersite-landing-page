@@ -1,0 +1,24 @@
+export default {
+	lbl_JoinNow: "สมัครเลย",
+	lbl_Deposit: "จำนวนเงินที่คุณต้องการถอนมากกว่ายอดเงินคงหลือในบัญชีของคุณ",
+	lbl_Register: "สมัครสมาชิก",
+	lbl_Username: "ชื่อผู้ใช้",
+	lbl_Password: "รหัส",
+	lbl_Check18TC1: "ฉันตกลง",
+	lbl_Check18TC2: "และ",
+	lbl_Check18TC3: "ของ",
+	lbl_Check18TC4: "ฉันยอมรับว่าฉันมีอายุอย่างน้อย 21 ปีบริบรูณ์",
+	lbl_TermsConditions: "Điều Khoản và Điều Kiện",
+	lbl_RuleRegulations: "กฎกติกาและระเบียบข้อบังคับการเดิมพัน",
+	msg_UsernameReq: "ต้องใส่ชื่อบัญชีผู้ใช้",
+	msg_UsernameLength: "ชื่อบัญชีผู้ใช้ควรมีความยาวระหว่าง 6 ถึง 18 ตัวอักษร",
+	msg_PasswordReq: "ต้องใส่รหัสผ่าน",
+	msg_PasswordLength: "รหัสผ่านควรมีความยาวระหว่าง 6 ถึง 18 ตัวอักษร",
+	msg_PasswordVaildate:
+		"6-18 ตัวอักษรและตัวเลข(A-Z, a-z, 0-9) หรือตัวอักษรพิเศษ @$*!%#?&",
+	msg_MailWrongFormat: "รูปแบบอีเมล์ไม่ถูกต้อง",
+	lbl_Check18TCTooltip:
+		"โปรดคลิก เครื่องหมายด้านบนเพื่อยืนยันคำขอลงทะเบียนบัญชี",
+	msg_UsernameNotAvailable: "ชื่อบัญชีผู้ใช้ไม่สามารถใช้ได้อีกต่อไป",
+	msg_MailExisted: "ชื่ออีเมล์นี้มีผู้ใช้แล้ว",
+};
