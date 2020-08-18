@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/desktop/node_modules
+/mobile/node_modules
 /.pnp
 .pnp.js
 
