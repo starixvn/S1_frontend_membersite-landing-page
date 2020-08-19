@@ -6,4 +6,7 @@ export const api_site_ExistsUserName = ({ UserName }) =>
 export const api_site_ExistsEmail = ({ Email }) =>
 	siteRequest.post(`/ExistsEmail`, { Email: Email });
 
+export const api_site_GetSiteCurrencyList = () =>
+	siteRequest.post(`/GetSiteCurrencyList`);
+
 // export const api_site_CheckSignIn = () => siteRequest.post(`/CheckSignIn/`);

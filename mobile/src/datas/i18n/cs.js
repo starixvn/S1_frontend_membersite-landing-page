@@ -14,11 +14,23 @@ export default {
 	msg_UsernameLength: "用户名必须介于6 和18 个字符之间。",
 	msg_PasswordReq: "请输入密码。",
 	msg_PasswordLength: "密码长度必须介于6 和18 个字符之间。",
-	msg_PasswordVaildate:
-		"6到18个数字、英文字母大小写或特殊符号(@$*!%#?&)",
+	msg_PasswordVaildate: "6到18个数字、英文字母大小写或特殊符号(@$*!%#?&)",
 	msg_MailWrongFormat: "电子邮箱格式错误",
-	lbl_Check18TCTooltip:
-		"请点选上方格子以确认符合账号注册条件",
+	lbl_Check18TCTooltip: "请点选上方格子以确认符合账号注册条件",
 	msg_UsernameNotAvailable: "用户名已有人使用。",
 	msg_MailExisted: "此电子邮件地址已有人使用。",
+	Currency_1: "SGD",
+	Currency_12: "GBP",
+	Currency_13: "RMB",
+	Currency_15: "IDR",
+	Currency_2: "MYR",
+	Currency_20: "UUS",
+	Currency_3: "USD",
+	Currency_32: "JPY",
+	Currency_4: "THB",
+	Currency_41: "CHF",
+	Currency_45: "WON",
+	Currency_51: "VND",
+	Currency_6: "EUR",
+	Currency_9: "AUD"
 };

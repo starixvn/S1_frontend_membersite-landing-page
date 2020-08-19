@@ -21,4 +21,18 @@ export default {
 		"โปรดคลิก เครื่องหมายด้านบนเพื่อยืนยันคำขอลงทะเบียนบัญชี",
 	msg_UsernameNotAvailable: "ชื่อบัญชีผู้ใช้ไม่สามารถใช้ได้อีกต่อไป",
 	msg_MailExisted: "ชื่ออีเมล์นี้มีผู้ใช้แล้ว",
+	Currency_1: "SGD",
+	Currency_12: "GBP",
+	Currency_13: "RMB",
+	Currency_15: "IDR",
+	Currency_2: "MYR",
+	Currency_20: "UUS",
+	Currency_3: "USD",
+	Currency_32: "JPY",
+	Currency_4: "THB",
+	Currency_41: "CHF",
+	Currency_45: "WON",
+	Currency_51: "VND",
+	Currency_6: "EUR",
+	Currency_9: "AUD"
 };

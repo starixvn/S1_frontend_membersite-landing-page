@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import { languageContext, i18nContext } from "../components/context";
 import {
 	api_site_ExistsUserName,
-	api_site_ExistsEmail
+	api_site_ExistsEmail,
+	api_site_GetSiteCurrencyList
 } from "../service/api/site";
 import TandC from "../service/t_and_c";
 import Inputbox from "../components/inputbox";
@@ -13,6 +14,7 @@ import csFlag from "../styles/img/cs.png";
 import thFlag from "../styles/img/th.png";
 import idFlag from "../styles/img/id.png";
 import config from "../config";
+import DropdownBox from "../components/dropdown";
 
 const initValue = {
 	username: "",
@@ -36,11 +38,23 @@ export default () => {
 	const [showPsw, setShowPsw] = useState(false);
 	const isMountedRef = useRef(null);
 	const xxxRef = useRef(null);
+	const [siteCurrList, setSiteCurrList] = useState([]);
+	const [currency, setCurrency] = useState(null);
 
 	useEffect(() => {
 		isMountedRef.current = true;
+		api_site_GetSiteCurrencyList().then(res => {
+			if (isMountedRef.current && res.data.errorCode === 0) {
+				setSiteCurrList(res.data.data);
+				setCurrency(
+					res.data.data && res.data.data.length > 0
+						? res.data.data[0]
+						: null
+				);
+			}
+		});
 		return () => (isMountedRef.current = false);
-	});
+	}, []);
 
 	const changeLang = lan => {
 		setLanguage(lan);
@@ -283,6 +297,10 @@ export default () => {
 		}
 	};
 
+	const SelectCurrency = currencyId => {
+		setCurrency(currencyId);
+	};
+
 	return (
 		<>
 			<form className="info" onSubmit={clickSubmit}>
@@ -324,6 +342,13 @@ export default () => {
 					onBlur={checkValue.bind(null, "email")}
 					tip={tip.email}
 				/>
+				<DropdownBox
+					options={siteCurrList}
+					i18n={i18n}
+					OnSelectItem={SelectCurrency}
+					SelectedItem={currency}
+				/>
+				<div className="tip"></div>
 				<Checkbox
 					checked={userValue.checkbox}
 					onChange={checkboxHandler}
@@ -341,9 +366,7 @@ export default () => {
 				{tip.checkbox !== "" ? (
 					<div className="tip active">{tip.checkbox}</div>
 				) : null}
-				<button 
-				className=""
-				 type="submit" onClick={clickSubmit}>
+				<button className="" type="submit" onClick={clickSubmit}>
 					{i18n["lbl_JoinNow"]}
 				</button>
 			</form>
@@ -362,7 +385,7 @@ export default () => {
 					value={userValue.password}
 				/>
 				<input type="hidden" name="Email" value={userValue.email} />
-				<input type="hidden" name="CurrencyId" value={51} />
+				<input type="hidden" name="CurrencyId" value={currency} />
 				<input type="hidden" name="UserLang" value={language} />
 				<input
 					type="hidden"

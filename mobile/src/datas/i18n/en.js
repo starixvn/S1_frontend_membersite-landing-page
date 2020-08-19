@@ -21,4 +21,18 @@ export default {
 		"Please click the above checkbox to confirm the account registration requirements",
 	msg_UsernameNotAvailable: "Username is no longer available.",
 	msg_MailExisted: "Mail already exists.",
+	Currency_1: "SGD",
+	Currency_12: "GBP",
+	Currency_13: "RMB",
+	Currency_15: "IDR",
+	Currency_2: "MYR",
+	Currency_20: "UUS",
+	Currency_3: "USD",
+	Currency_32: "JPY",
+	Currency_4: "THB",
+	Currency_41: "CHF",
+	Currency_45: "WON",
+	Currency_51: "VND",
+	Currency_6: "EUR",
+	Currency_9: "AUD"
 };

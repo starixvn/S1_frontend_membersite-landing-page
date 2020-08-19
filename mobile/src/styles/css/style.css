@@ -49,7 +49,7 @@ html,body{
 .info{
   display: flex;
   flex-direction: column;
-  margin-top: 3vw;
+  margin-top: -25vw;
 }
 
 .smallTitle {
@@ -109,6 +109,44 @@ input{
   color: #5577a4;
 }
 
+.dropdown {
+  width: 100%;
+  border-radius: 5px;
+  border: 0;
+  height: 30px;
+  background: #fff;
+}
+
+.dropdown .cybtn {
+  width: 100%;
+  font-size: .6em;
+  color:#000;
+  margin: 0;
+  padding:0 10px;
+  background: none;
+  text-shadow:none;
+  text-decoration: none;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+ul.dropdown-container {
+  width:calc(100% - 20px) ;
+  position: relative;
+  background:rgba(0,0,0,0.9);
+  display: none;
+  padding:10px;
+  border-radius:0 0 5px 5px;
+
+}
+ul.dropdown-container li{
+  line-height: 6vw;
+}
+
+ul.dropdown-container.active {
+  display: inline-block;
+}
+
 ::-webkit-input-placeholder{
   color:#000;
 }
@@ -117,7 +155,7 @@ input{
   position: relative;
   cursor: pointer;
   margin-top: 0;
-  transform: translateY(-30px);
+  transform: translateY(-28px);
 }
 .eye:after{
   background: url(../img/remove_red_eye.png);
@@ -126,8 +164,8 @@ input{
   content: '';
   display: block;
   position: absolute;
-  right: 2px;
-  transform: translateY(-25%);
+  right: 10px;
+  transform: translateY(-23%);
 }
 .eye-off:after{
   background: url(../img/visibility_off.png);
@@ -136,9 +174,23 @@ input{
   content: '';
   display: block;
   position: absolute;
-  right: 2px;
-  transform: translateY(-25%);
+  right: 10px;
+  transform: translateY(-23%);
 }
+
+.down {
+  background: url(../img/icon_arrow_down.png);
+  width: 24px;
+  height: 24px;
+  justify-content: space-between;
+  transform: rotate(0deg);
+}
+
+.down.active{
+  transform: rotate(180deg);
+  transition: 0.4s;
+}
+
 .tip{
   color:#f77a00;
   margin-bottom: 5px;
