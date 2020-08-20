@@ -34,5 +34,11 @@ export default {
 	Currency_45: "WON",
 	Currency_51: "VND",
 	Currency_6: "EUR",
-	Currency_9: "AUD"
+	Currency_9: "AUD",
+	lbl_PreferredCurrencyToolTip:
+		"Preferred currency can not be changed after registration.",
+	lbl_PrefferedCurrency: "Preferred Currency",
+	lbl_Phone: "Phone Number",
+	msg_EnterPhoneNumber: "Please enter phone number.",
+	msg_HasExist: "already exists."
 };

@@ -3,7 +3,8 @@ import { languageContext, i18nContext } from "../components/context";
 import {
 	api_site_ExistsUserName,
 	api_site_ExistsEmail,
-	api_site_GetSiteCurrencyList
+	api_site_GetSiteCurrencyList,
+	api_site_ExistsPhoneNo
 } from "../service/api/site";
 import TandC from "../service/t_and_c";
 import Inputbox from "../components/inputbox";
@@ -15,19 +16,30 @@ import thFlag from "../styles/img/th.png";
 import idFlag from "../styles/img/id.png";
 import config from "../config";
 import DropdownBox from "../components/dropdown";
+import AreaCode from "../components/areaCode";
 
 const initValue = {
 	username: "",
 	password: "",
 	email: "",
-	checkbox: false
+	checkbox: false,
+	phoneNo: ""
 };
 
 const initTip = {
 	username: "",
 	password: "",
 	email: "",
-	checkbox: ""
+	checkbox: "",
+	phoneNo: ""
+};
+
+const defCountry = {
+	2: "MY",
+	4: "TH",
+	13: "CS",
+	15: "ID",
+	51: "VN"
 };
 
 export default () => {
@@ -84,6 +96,9 @@ export default () => {
 			msg = result.msg;
 		} else if (col === "email") {
 			let result = emailCheck(val);
+			msg = result.msg;
+		} else if (col === "phoneNo") {
+			let result = phoneCheck(val);
 			msg = result.msg;
 		}
 
@@ -231,17 +246,44 @@ export default () => {
 		});
 	};
 
+	const phoneCheck = value => {
+		let checked = true;
+		let msg = "";
+		if (!value) {
+			msg = "msg_EnterPhoneNumber";
+			checked = false;
+		}
+
+		let areaCode = AreaCode[defCountry[currency]]?.AreaCode;
+		if (areaCode && checked) {
+			api_site_ExistsPhoneNo(areaCode, userValue.phoneNo).then(res => {
+				if (res.data.errorCode !== 0) {
+					setTip(prev => {
+						return {
+							...prev,
+							phoneNo: `${i18n.lbl_Phone} ${i18n.msg_HasExist}`
+						};
+					});
+				}
+			});
+		}
+
+		return { checked, msg };
+	};
+
 	const clickSubmit = e => {
 		e.preventDefault();
 		let _usernameCheck = usernameCheck(userValue.username);
 		let _passwordCheck = passwordCheck(userValue.password);
 		let _emailCheck = emailCheck(userValue.email);
 		let _checkboxCheck = userValue.checkbox;
+		let _phoneNoCheck = phoneCheck(userValue.phoneNo);
 
 		let checked =
 			_usernameCheck.checked &&
 			_passwordCheck.checked &&
 			_emailCheck.checked &&
+			_phoneNoCheck &&
 			_checkboxCheck;
 
 		if (!checked) {
@@ -249,51 +291,18 @@ export default () => {
 			if (!_checkboxCheck) {
 				checkboxMsg = "lbl_Check18TCTooltip";
 			}
-			setTip({
+			setTip(prev => ({
 				username: i18n[_usernameCheck.msg],
 				password: i18n[_passwordCheck.msg],
 				email: i18n[_emailCheck.msg],
-				checkbox: i18n[checkboxMsg]
-			});
-		} else {
+				checkbox: i18n[checkboxMsg],
+				phoneNo: i18n[_phoneNoCheck.msg]
+			}));
+		} else if (
+			Object.values(tip).filter(v => !v).length ===
+			Object.keys(tip).length
+		) {
 			xxxRef.current.submit();
-			// let regData = {
-			// 	UserName: userValue.username,
-			// 	Userpwd: userValue.password,
-			// 	Email: userValue.email,
-			// 	CurrencyId: 51,
-			// 	UserLang: language
-			// };
-			// api_site_Register(regData).then(
-			// 	res => {
-			// 		if (isMountedRef.current) {
-			// 			const errorCode = res.data.errorCode;
-			// 			const message = res.data.message;
-			// 			if (errorCode === 0) {
-			// 				window.location.href = config.openURL;
-			// 			} else if (
-			// 				errorCode === -2 ||
-			// 				errorCode === -5 ||
-			// 				errorCode === -19
-			// 			) {
-			// 				setTip(prev => {
-			// 					return { ...prev, username: message };
-			// 				});
-			// 			} else if (errorCode === -3) {
-			// 				setTip(prev => {
-			// 					return { ...prev, password: message };
-			// 				});
-			// 			} else {
-			// 				alert(message);
-			// 			}
-			// 		}
-			// 	},
-			// 	res => {
-			// 		if (isMountedRef.current) {
-			// 			alert("API Server Error.");
-			// 		}
-			// 	}
-			// );
 		}
 	};
 
@@ -348,7 +357,26 @@ export default () => {
 					OnSelectItem={SelectCurrency}
 					SelectedItem={currency}
 				/>
-				<div className="tip"></div>
+				<div className="tip">{i18n.lbl_PreferredCurrencyToolTip}</div>
+				<div>
+					<input
+						className="CountryCode"
+						defaultValue={
+							currency
+								? AreaCode[defCountry[currency]]?.AreaCode
+								: ""
+						}
+						readOnly
+					/>
+					<input
+						placeholder={i18n.lbl_Phone}
+						type="number"
+						value={userValue.phoneNo}
+						onChange={EditField.bind(this, "phoneNo")}
+						onBlur={checkValue.bind(null, "phoneNo")}
+					/>
+				</div>
+				<div className="tip">{tip.phoneNo}</div>
 				<Checkbox
 					checked={userValue.checkbox}
 					onChange={checkboxHandler}
@@ -378,19 +406,49 @@ export default () => {
 					type="hidden"
 					name="UserName"
 					value={userValue.username}
+					onChange={() => {}}
 				/>
 				<input
 					type="hidden"
 					name="Userpwd"
 					value={userValue.password}
+					onChange={() => {}}
 				/>
-				<input type="hidden" name="Email" value={userValue.email} />
-				<input type="hidden" name="CurrencyId" value={currency} />
-				<input type="hidden" name="UserLang" value={language} />
+				<input
+					type="hidden"
+					name="Email"
+					value={userValue.email}
+					onChange={() => {}}
+				/>
+				<input
+					type="hidden"
+					name="CurrencyId"
+					value={currency ?? ""}
+					onChange={() => {}}
+				/>
+				<input
+					type="hidden"
+					name="UserLang"
+					value={language}
+					onChange={() => {}}
+				/>
+				<input
+					type="hidden"
+					name="AreaCode"
+					value={AreaCode[defCountry[currency]]?.AreaCode ?? ""}
+					onChange={() => {}}
+				/>
+				<input
+					type="hidden"
+					name="PhoneNo"
+					value={userValue.phoneNo}
+					onChange={() => {}}
+				/>
 				<input
 					type="hidden"
 					name="SignupUrl"
 					value={window.location.host}
+					onChange={() => {}}
 				/>
 			</form>
 		</>

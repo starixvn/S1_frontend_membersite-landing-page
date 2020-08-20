@@ -8,10 +8,6 @@ html,body{
   font-family: sans-serif;
 }
 
- body > div,body > div > div{
-  height: 100%;
-} 
-
 .wallpaper{
   width: 100%;
   height: 100%;
@@ -25,7 +21,7 @@ html,body{
   border-radius: 10px;
   left: 54%;
   position: absolute;
-  top: 18%;
+  top: 21%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,15 +56,14 @@ a{
   font-weight: bold;
   color: #42c7ff;
 }
-button{
+.agree + button{
   width: 200px;
   background: linear-gradient(to bottom, rgba(254,0,0,1) 80%,rgba(240,5,5,1) 100%);
   padding: 10px;
   border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
-  color: #fff;
-  text-shadow:-3px -3px 0 #a60000, 3px -3px 0 #a60000, -3px 3px 0 #a60000, 3px 3px 0 #a60000; 
+  color: white;
   font-size: 20px;
   margin: 10px 0 0 65px;
 }
@@ -102,6 +97,7 @@ input{
   border: 0;
   height: 30px;
   background: #fff;
+  margin: 5px 0;
 }
 
 .dropdown .cybtn {
@@ -118,16 +114,17 @@ input{
   align-items: center;
 }
 ul.dropdown-container {
-  width:calc(100% - 20px) ;
+  width:100% ;
   position: relative;
   background:rgba(0,0,0,0.9);
   display: none;
-  padding:10px;
+  padding:10px 0;
   border-radius:0 0 5px 5px;
 
 }
 ul.dropdown-container li{
   line-height: 1.5vw;
+  padding:0 10px;
 }
 
 ul.dropdown-container.active {
@@ -161,6 +158,7 @@ li.dropdown-item:hover{
   cursor: pointer;
   margin-top: 0;
   transform: translateY(-30px);
+  margin-right: 8px;
 }
 .eye:after{
   background: url(../img/remove_red_eye.png);
@@ -213,4 +211,13 @@ li.dropdown-item:hover{
   .info{
     width: 80vw;
   }
+}
+.CountryCode{
+  width: calc(20% - 20px);
+  float: left;
+  cursor: auto;
+}
+.CountryCode + input{
+  width: calc(75% - 20px);
+  margin-left: 5%;
 }

@@ -19,12 +19,11 @@ export default () => {
 
 	return (
 		<div className="wallpaper">
-			<div class="logo">
+			<div className="logo">
 				<img src={logo} alt="Nova88" />
 			</div>
 			<div className="module">
-				<a href={config.openURL}>
-				</a>
+				<a href={config.openURL}></a>
 				<Form />
 			</div>
 		</div>

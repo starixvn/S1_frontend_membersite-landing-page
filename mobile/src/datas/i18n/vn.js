@@ -34,5 +34,11 @@ export default {
 	Currency_45: "WON",
 	Currency_51: "VND",
 	Currency_6: "EUR",
-	Currency_9: "AUD"
+	Currency_9: "AUD",
+	lbl_PreferredCurrencyToolTip:
+		"Không thể thay đổi Tiền tệ ưa thích sau khi đăng ký.",
+	lbl_PrefferedCurrency: "Tiền tệ ưa thích",
+	lbl_Phone: "Số ĐT",
+	msg_EnterPhoneNumber: "Vui lòng nhập số điện thoại.",
+	msg_HasExist: "đã tồn tại."
 };

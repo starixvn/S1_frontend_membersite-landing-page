@@ -9,4 +9,9 @@ export const api_site_ExistsEmail = ({ Email }) =>
 export const api_site_GetSiteCurrencyList = () =>
 	siteRequest.post(`/GetSiteCurrencyList`);
 
+export const api_site_ExistsPhoneNo = (AreaCode, PhoneNo) =>
+	siteRequest.post(`/ExistsPhoneNo`, {
+		AreaCode: AreaCode,
+		PhoneNo: PhoneNo
+	});
 // export const api_site_CheckSignIn = () => siteRequest.post(`/CheckSignIn/`);

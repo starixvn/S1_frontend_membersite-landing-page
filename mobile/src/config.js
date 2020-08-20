@@ -1,7 +1,7 @@
 export default process.env.NODE_ENV === "production"
 	? {
 			apiURL: "",
-			openURL: "https://www.nova88.net",
+			openURL: "https://m.nova88.net",
 			imgUrl: "",
 			t_and_cURL: ""
 	  }
