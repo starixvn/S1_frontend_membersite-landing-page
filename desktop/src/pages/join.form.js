@@ -23,7 +23,8 @@ const initValue = {
 	password: "",
 	email: "",
 	checkbox: false,
-	phoneNo: ""
+	phoneNo: "",
+	realname: ""
 };
 
 const initTip = {
@@ -31,7 +32,8 @@ const initTip = {
 	password: "",
 	email: "",
 	checkbox: "",
-	phoneNo: ""
+	phoneNo: "",
+	realname: ""
 };
 
 const defCountry = {
@@ -78,10 +80,16 @@ export default () => {
 
 	const EditField = (col, e) => {
 		let val = e.target.value;
-		setUserValue(prev => ({
-			...prev,
-			[col]: val
-		}));
+		var regExp = new RegExp("^\\d+$");
+		if (
+			(col === "phoneNo" && (val === "" || regExp.test(val))) ||
+			col !== "phoneNo"
+		) {
+			setUserValue(prev => ({
+				...prev,
+				[col]: val
+			}));
+		}
 	};
 
 	const checkValue = (col, e) => {
@@ -244,6 +252,10 @@ export default () => {
 		setUserValue(prev => {
 			return { ...prev, checkbox: checked };
 		});
+
+		if (checked) {
+			setTip(prev => ({ ...prev, checkbox: "" }));
+		}
 	};
 
 	const phoneCheck = value => {
@@ -271,6 +283,17 @@ export default () => {
 		return { checked, msg };
 	};
 
+	const realNameCheck = value => {
+		let checked = true;
+		let msg = "";
+		if (!value) {
+			msg = "msg_EnterRealName";
+			checked = false;
+		}
+
+		return { checked, msg };
+	};
+
 	const clickSubmit = e => {
 		e.preventDefault();
 		let _usernameCheck = usernameCheck(userValue.username);
@@ -278,12 +301,14 @@ export default () => {
 		let _emailCheck = emailCheck(userValue.email);
 		let _checkboxCheck = userValue.checkbox;
 		let _phoneNoCheck = phoneCheck(userValue.phoneNo);
+		let _realNameCheck = realNameCheck(userValue.realname);
 
 		let checked =
 			_usernameCheck.checked &&
 			_passwordCheck.checked &&
 			_emailCheck.checked &&
 			_phoneNoCheck &&
+			_realNameCheck &&
 			_checkboxCheck;
 
 		if (!checked) {
@@ -296,7 +321,8 @@ export default () => {
 				password: i18n[_passwordCheck.msg],
 				email: i18n[_emailCheck.msg],
 				checkbox: i18n[checkboxMsg],
-				phoneNo: i18n[_phoneNoCheck.msg]
+				phoneNo: i18n[_phoneNoCheck.msg],
+				realname: i18n[_realNameCheck.msg]
 			}));
 		} else if (
 			Object.values(tip).filter(v => !v).length ===
@@ -327,6 +353,13 @@ export default () => {
 						<img src={idFlag} alt="id" />
 					</a>
 				</div>
+				<Inputbox
+					displayText={i18n["lbl_RealName"]}
+					value={userValue.realname}
+					tip={tip.realname}
+					onChange={EditField.bind(null, "realname")}
+					onBlur={checkValue.bind(null, "realname")}
+				/>
 				<Inputbox
 					displayText={i18n["lbl_Username"]}
 					value={userValue.username}
@@ -440,6 +473,12 @@ export default () => {
 					type="hidden"
 					name="AreaCode"
 					value={AreaCode[defCountry[currency]]?.AreaCode ?? ""}
+					onChange={() => {}}
+				/>
+				<input
+					type="hidden"
+					name="RealName"
+					value={userValue.realname}
 					onChange={() => {}}
 				/>
 				<input

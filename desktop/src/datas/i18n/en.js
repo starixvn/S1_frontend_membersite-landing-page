@@ -40,5 +40,7 @@ export default {
 	lbl_PrefferedCurrency: "Preferred Currency",
 	lbl_Phone: "Phone Number",
 	msg_EnterPhoneNumber: "Please enter phone number.",
-	msg_HasExist: "already exists."
+	msg_HasExist: "already exists.",
+	msg_EnterRealName: "Please enter your real name.",
+	lbl_RealName: "Real Name"
 };

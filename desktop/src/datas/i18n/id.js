@@ -44,5 +44,7 @@ export default {
 	lbl_PrefferedCurrency: "Mata Uang Pilihan",
 	lbl_Phone: "Nomor Handphone",
 	msg_EnterPhoneNumber: "Silakan masukkan nomor telepon anda",
-	msg_HasExist: "Sudah ada"
+	msg_HasExist: "Sudah ada",
+	msg_EnterRealName: "Silakan masukkan nama asli anda",
+	lbl_RealName: "Nama asli"
 };

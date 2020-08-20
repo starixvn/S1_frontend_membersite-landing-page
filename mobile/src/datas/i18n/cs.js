@@ -37,5 +37,7 @@ export default {
 	lbl_PrefferedCurrency: "首选货币",
 	lbl_Phone: "电话号码",
 	msg_EnterPhoneNumber: "请输入手机号码",
-	msg_HasExist: "已存在系统中"
+	msg_HasExist: "已存在系统中",
+	msg_EnterRealName: "请输入您的真实姓名",
+	lbl_RealName: "真实姓名"
 };

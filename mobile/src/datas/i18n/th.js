@@ -40,5 +40,7 @@ export default {
 	lbl_PrefferedCurrency: "สกุลเงินที่เลือก",
 	lbl_Phone: "หมายเลขโทรศัพท์",
 	msg_EnterPhoneNumber: "โปรดใส่เบอร์โทรศัพท์",
-	msg_HasExist: "มีอยู่ในระบบแล้ว"
+	msg_HasExist: "มีอยู่ในระบบแล้ว",
+	msg_EnterRealName: "โปรดใส่ชื่อจริง",
+	lbl_RealName: "ชื่อจริง"
 };

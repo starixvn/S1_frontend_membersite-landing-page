@@ -40,5 +40,7 @@ export default {
 	lbl_PrefferedCurrency: "Tiền tệ ưa thích",
 	lbl_Phone: "Số ĐT",
 	msg_EnterPhoneNumber: "Vui lòng nhập số điện thoại.",
-	msg_HasExist: "đã tồn tại."
+	msg_HasExist: "đã tồn tại.",
+	msg_EnterRealName: "Vui lòng nhập tên thật của bạn.",
+	lbl_RealName: "Tên thật"
 };
