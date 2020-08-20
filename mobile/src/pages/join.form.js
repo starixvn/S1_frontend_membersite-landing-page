@@ -385,13 +385,13 @@ export default () => {
 					onBlur={checkValue.bind(null, "email")}
 					tip={tip.email}
 				/>
-				<DropdownBox
+				{/* <DropdownBox
 					options={siteCurrList}
 					i18n={i18n}
 					OnSelectItem={SelectCurrency}
 					SelectedItem={currency}
-				/>
-				<div className="tip">{i18n.lbl_PreferredCurrencyToolTip}</div>
+				/> */}
+				{/* <div className="tip">{i18n.lbl_PreferredCurrencyToolTip}</div> */}
 				<div>
 					<input
 						className="CountryCode"
@@ -457,7 +457,7 @@ export default () => {
 				<input
 					type="hidden"
 					name="CurrencyId"
-					value={currency ?? ""}
+					value={2}
 					onChange={() => {}}
 				/>
 				<input
