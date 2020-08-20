@@ -38,5 +38,11 @@ export default {
 	Currency_45: "WON",
 	Currency_51: "VND",
 	Currency_6: "EUR",
-	Currency_9: "AUD"
+	Currency_9: "AUD",
+	lbl_PreferredCurrencyToolTip:
+		"Mata uang yang dipilih tidak dapat diubah setelah melakukan pendaftaran.",
+	lbl_PrefferedCurrency: "Mata Uang Pilihan",
+	lbl_Phone: "Nomor Handphone",
+	msg_EnterPhoneNumber: "Silakan masukkan nomor telepon anda",
+	msg_HasExist: "Sudah ada"
 };

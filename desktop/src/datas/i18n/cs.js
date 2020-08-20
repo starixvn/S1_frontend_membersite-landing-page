@@ -32,5 +32,10 @@ export default {
 	Currency_45: "WON",
 	Currency_51: "VND",
 	Currency_6: "EUR",
-	Currency_9: "AUD"
+	Currency_9: "AUD",
+	lbl_PreferredCurrencyToolTip: "一旦完成注册，即无法修改选定币别。",
+	lbl_PrefferedCurrency: "首选货币",
+	lbl_Phone: "电话号码",
+	msg_EnterPhoneNumber: "请输入手机号码",
+	msg_HasExist: "已存在系统中"
 };

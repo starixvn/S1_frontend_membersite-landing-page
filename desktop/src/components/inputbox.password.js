@@ -3,9 +3,8 @@ import React from "react";
 export default props => {
 	return (
 		<>
-			<i className="txt-blue">{props.displayText}</i>
 			<input
-				placeholder={props.placeholder}
+				placeholder={props.displayText}
 				type={props.inputType}
 				value={
 					props.value === null || props.value === undefined
