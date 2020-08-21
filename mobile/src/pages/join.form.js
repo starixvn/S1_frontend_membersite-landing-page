@@ -341,10 +341,10 @@ export default () => {
 		<>
 			<form className="info" onSubmit={clickSubmit}>
 				<div className="smallTitle language">
-					<a onClick={changeLang.bind(this, "en")}>
+					{/* <a onClick={changeLang.bind(this, "en")}>
 						<img src={enFlag} alt="en" />
 					</a>
-					{/* <a onClick={changeLang.bind(this, "cs")}>
+					<a onClick={changeLang.bind(this, "cs")}>
 						<img src={csFlag} alt="cs" />
 					</a>
 					<a onClick={changeLang.bind(this, "th")}>
