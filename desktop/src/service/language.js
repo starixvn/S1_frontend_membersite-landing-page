@@ -1,6 +1,7 @@
 export const GET_LANG_ID = userLangId => {
 	let siteDefLangId = "en";
-	let siteLangList = ["en", "vn", "cs","th","id"];
+	// let siteLangList = ["en", "vn", "cs","th","id"];
+	let siteLangList = ["en"];
 
 	let langId = userLangId ? userLangId : null;
 	let browserDefLang =
