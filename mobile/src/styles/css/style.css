@@ -37,6 +37,14 @@ html,body{
   margin-top: -5vw;
 }
 
+.info p{
+  color: #fff;
+  font-size:3.5vw;
+  font-weight: 700;
+  text-align: center;
+  padding: 2vh 0;
+}
+
 .smallTitle {
   margin: 5px 0;
   /* line-height: 30px; */

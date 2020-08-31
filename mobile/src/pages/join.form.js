@@ -340,8 +340,8 @@ export default () => {
 	return (
 		<>
 			<form className="info" onSubmit={clickSubmit}>
-				<div className="smallTitle language">
-					{/* <a onClick={changeLang.bind(this, "en")}>
+				{/* <div className="smallTitle language"> */}
+				{/* <a onClick={changeLang.bind(this, "en")}>
 						<img src={enFlag} alt="en" />
 					</a>
 					<a onClick={changeLang.bind(this, "cs")}>
@@ -353,7 +353,8 @@ export default () => {
 					<a onClick={changeLang.bind(this, "id")}>
 						<img src={idFlag} alt="id" />
 					</a> */}
-				</div>
+				{/* </div> */}
+				<p>CLAIM YOUR FREE GIFT NOW</p>
 				<Inputbox
 					displayText={i18n["lbl_RealName"]}
 					value={userValue.realname}
