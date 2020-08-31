@@ -18,22 +18,7 @@ html,body{
 .wallpaper {
   width: 100%;
   height: 100%;
-  background: url(../img/mobile2.jpg)no-repeat top center / cover ;
-}
-
-.wallpaper .top {
-  background: #000;
-  width: 100%;
-  height: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.top img{
-  width: 30%;
-  position: absolute;
-  top: 3%;
+  background: url(../img/mobile2.jpg)no-repeat center center / cover ;
 }
 
 .module{
@@ -41,8 +26,8 @@ html,body{
   flex-direction: column;
   align-items: center;
   padding: 0 10vw;
-  background: rgba(0,0,0,0.5);
-  height: calc(100% - 15vw);
+  /* background: rgba(0,0,0,0.5); */
+  height: calc(100% - 35vh);
   justify-content: center;
 }
 
@@ -118,7 +103,7 @@ input{
 
 .dropdown .cybtn {
   width: 100%;
-  font-size: .6em;
+  font-size: 1rem;
   color:#000;
   margin: 0;
   padding:0 10px;
@@ -140,6 +125,7 @@ ul.dropdown-container {
 }
 ul.dropdown-container li{
   line-height: 6vw;
+  font-size: 1rem;
 }
 
 ul.dropdown-container.active {
@@ -209,14 +195,16 @@ ul.dropdown-container.active {
 
 }
 .logo{
-  height: 11vw;
-  background: black;
+  height: 10vh;
   text-align: center;
-  padding: 2vw 0;
-}
+  padding-top: 12vh;
+} 
+
 .logo img{
-  width: 30vw;
+  width: 26%;
 }
+
+
 .CountryCode{
   width: calc(20% - 20px);
   float: left;
@@ -225,4 +213,14 @@ ul.dropdown-container.active {
 .CountryCode + input{
   width: calc(75% - 20px);
   margin-left: 5%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
